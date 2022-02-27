@@ -35,8 +35,14 @@ Ensure that [Docker](https://docs.docker.com/install/) is installed and running 
 Now, it's just a matter of running the following command, and you have Dgraph up and running.
 
 ```sh
-docker run --rm -it -p 8000:8000 -p 8080:8080 -p 9080:9080 dgraph/standalone:{{< version >}}
+docker run --rm -it -p 8080:8080 -p 9080:9080 dgraph/standalone:{{< version >}}
 ```
+
+
+```sh
+docker run --rm -p 8000:8000 dgraph/ratel:{{< version >}}
+```
+
 
 ### Nodes and Edges
 
