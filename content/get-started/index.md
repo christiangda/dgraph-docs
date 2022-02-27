@@ -56,7 +56,7 @@ Follow the instructions [here](https://docs.docker.com/install) to install
 Docker if you don't have it already.
 
 ```sh
-docker run --rm -it -p "8080:8080" -p "9080:9080" -p "8000:8000" -v ~/dgraph:/dgraph "dgraph/standalone:{{< version >}}"
+docker run --rm -it -p "8080:8080" -p "9080:9080" -v ~/dgraph:/dgraph "dgraph/standalone:{{< version >}}"
 ```
 {{% notice "note" %}}This standalone image is meant for quickstart purposes only.
 It is not recommended for production environments.
@@ -67,10 +67,29 @@ You would find the Dgraph data stored in a folder named *dgraph* of your *home d
 
 ### Step 2: Run Mutation
 
-{{% notice "tip" %}}
-Once Dgraph is running, you can access **Ratel** at [`http://localhost:8000`](http://localhost:8000).
-It allows browser-based queries, mutations and visualizations.
+There are several ways to iteract with `Dgraph` database
 
+#### 1. Using a local `ratel` docker container
+
+```sh
+docker run --rm -p "8000:8000" -v ~/dgraph:/dgraph "dgraph/ratel:{{< version >}}"
+```
+
+{{% notice "tip" %}}
+Once `Dgraph` and `ratel` are running, you can access **Ratel** at [`http://localhost:8000`](http://localhost:8000).
+It allows browser-based queries, mutations and visualizations.
+{{% /notice %}}
+
+#### 2. Using `play.dgraph.io`
+
+{{% notice "tip" %}}
+Once `Dgraph` is running, you can access **Ratel** at [`http://play.dgraph.io/`](http://play.dgraph.io/).
+It allows browser-based queries, mutations and visualizations.
+{{% /notice %}}
+
+#### 2. Using `api endpoint`
+
+{{% notice "tip" %}}
 You can run the mutations and queries below from either curl in the command line
 or by pasting the mutation data in **Ratel**.
 {{% /notice %}}
